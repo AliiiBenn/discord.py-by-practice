@@ -1,0 +1,1412 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Discord.py Exercices</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="chapter_1/events.html"><strong aria-hidden="true">2.</strong> Chapter 1 - Events</a></li><li class="chapter-item expanded "><a href="chapter_2/commands.html"><strong aria-hidden="true">3.</strong> Chapter 2 - Commands</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_2/without_arguments.html"><strong aria-hidden="true">3.1.</strong> without arguments</a></li><li class="chapter-item expanded "><a href="chapter_2/unique_argument.html"><strong aria-hidden="true">3.2.</strong> unique argument</a></li><li class="chapter-item expanded "><a href="chapter_2/multiple_arguments.html"><strong aria-hidden="true">3.3.</strong> multiple arguments</a></li><li class="chapter-item expanded "><a href="chapter_2/string_arguments.html"><strong aria-hidden="true">3.4.</strong> string arguments</a></li><li class="chapter-item expanded "><a href="chapter_2/commands_errors.html"><strong aria-hidden="true">3.5.</strong> commands errors</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3/basic_converters.html"><strong aria-hidden="true">4.</strong> Chapter 3 - Basic Converters</a></li><li class="chapter-item expanded "><a href="chapter_4/cogs.html"><strong aria-hidden="true">5.</strong> Chapter 4 - Cogs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_4/add_commands_to_a_cog.html"><strong aria-hidden="true">5.1.</strong> add commands to a cog</a></li><li class="chapter-item expanded "><a href="chapter_4/add_events_to_a_cog.html"><strong aria-hidden="true">5.2.</strong> add events to a cog</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_5/embeds.html"><strong aria-hidden="true">6.</strong> Chapter 5 - Embeds</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_5/create_an_embed.html"><strong aria-hidden="true">6.1.</strong> create an embed</a></li><li class="chapter-item expanded "><a href="chapter_5/customize_an_embed.html"><strong aria-hidden="true">6.2.</strong> customize an embed</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_6/slash_commands.html"><strong aria-hidden="true">7.</strong> Chapter 6 - Slash Commands</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_6/create_a_slash_command.html"><strong aria-hidden="true">7.1.</strong> create a slash command</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_7/hybrid_commands.html"><strong aria-hidden="true">8.</strong> Chapter 7 - Hybrid Commands</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_7/create_a_hybrid_command.html"><strong aria-hidden="true">8.1.</strong> create a hybrid command</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_8/converters.html"><strong aria-hidden="true">9.</strong> Chapter 8 - Converters</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_8/functions_converters.html"><strong aria-hidden="true">9.1.</strong> functions converters</a></li><li class="chapter-item expanded "><a href="chapter_8/advanced_converters.html"><strong aria-hidden="true">9.2.</strong> advanced converters</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Discord.py Exercices</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Welcome to this website dedicated to learning how to use the discord.py library! This platform is designed for individuals who already possess programming experience and wish to master the functionalities of discord.py.</p>
+<p>Each chapter focuses on a fundamental concept of the discord.py library, accompanied by a series of exercises that allow you to apply and reinforce your understanding. The exercises are organized by difficulty level and include solutions. It is recommended to progress through the exercises sequentially, attempting to solve them independently before referring to the solutions. Should you have any questions or concerns, feel free to reach out to me on Discord (AliBen#7502).</p>
+<p>Throughout the exercises, you will encounter changes in the way commands are written, as we introduce type hints and converters, primarily covered in chapters 3 and 8.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1---events"><a class="header" href="#chapter-1---events">Chapter 1 - Events</a></h1>
+<p>In discord.py, events are methods that are called when a specific action or condition occurs in the Discord server where the bot is running. For example, when a message is sent in a channel, the <code>on_message</code> method is called with the sent message as a parameter. To create an event, we use the following syntax:</p>
+<pre><code class="language-python">@bot_name.event
+async def event_name(*args, **kwargs):
+    ...
+</code></pre>
+<p>The <code>event_name</code> refers to the name of the event that you want to setup. You can find a full list of events in the Discord.py documentation.</p>
+<p>For example, to create an <code>on_ready</code> event that is called when the bot is ready, we use the following syntax:</p>
+<pre><code class="language-python">@bot.event
+async def on_ready():
+    print(&quot;Ready!&quot;)
+</code></pre>
+<p>In this example, <code>on_ready()</code> will be triggered once, just after the bot has logged in and successfully connected to Discord. The message &quot;Ready!&quot; is printed to the console to notify you that the event has been triggered.</p>
+<hr />
+<h1 id="exercises"><a class="header" href="#exercises">Exercises</a></h1>
+<h3 id="exercise-1"><a class="header" href="#exercise-1">Exercise 1</a></h3>
+<p>Create an <code>on_ready</code> event that displays the message &quot;I'm online!&quot; in the console when the bot is ready. </p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.event
+async def on_ready():
+    print(&quot;I'm online!&quot;)
+</code></pre>
+</details>
+<p><strong>Description</strong>: This exercise aims to demonstrate how to create an <code>on_ready()</code> event that triggers an action when the bot is ready to run. The bot sends an &quot;I'm online!&quot; message in the console when this event occurs.</p>
+<h3 id="exercise-2"><a class="header" href="#exercise-2">Exercise 2</a></h3>
+<p>Create an <code>on_message</code> event that checks if the message was sent by a bot. If not, and the message contains &quot;Hello&quot;, the bot responds with &quot;Hello!&quot;. </p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.event
+async def on_message(message : discord.Message): # The message : discord.Message part is optional but allows to have code completion in your IDE
+    if message.author.bot: # Check if the message was sent by a bot to avoid infinite loops
+        return
+
+    if &quot;Hello&quot; in message.content: 
+        await message.channel.send(&quot;Hello!&quot;)
+</code></pre>
+</details>
+<p><strong>Description</strong>: This exercise shows how to create an <code>on_message()</code> event that triggers an action when the bot receives a message in a channel. The bot checks if the message was not sent by another bot, and if it contains the phrase &quot;Hello&quot;, it sends a response of &quot;Hello!&quot; back to the user</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-2---commands"><a class="header" href="#chapter-2---commands">Chapter 2 - Commands</a></h1>
+<p>In discord.py, commands are functions that are called when a command is executed. For example, when a user executes the command <code>!ping</code>, the <code>ping</code> function is called. To create a command, we use the following syntax:</p>
+<pre><code class="language-python">@bot_name.command()
+async def command_name(*args, **kwargs):
+    ...
+</code></pre>
+<p>For example, to create a <code>ping</code> command that is called when the user executes the command <code>!ping</code>, we use the following syntax:</p>
+<pre><code class="language-python">@bot.command()
+async def ping(ctx):
+    await ctx.send(&quot;Pong!&quot;)
+</code></pre>
+<p>This example sends the message &quot;Pong!&quot; in the channel where the command was executed.</p>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><h1 id="without-arguments"><a class="header" href="#without-arguments">without arguments</a></h1>
+<p>The simplest commands are the ones that don't have any arguments. To create a command without arguments, you just need to define a function with the <code>@bot.command()</code> decorator and define the <code>ctx</code> parameter of the function. This parameter is an object of type <code>commands.Context</code>. This object is obtained from the <code>ctx</code> parameter of the command function. This object contains information about the command and the message that called the command. Therefore, it is necessary to pass it as the first parameter of the command function.</p>
+<p>Despite this, it is completely possible not to pass any other arguments, thus a command without arguments will have the following structure:</p>
+<pre><code class="language-python">@bot.command()
+async def command_name(ctx : commands.Context) -&gt; None:
+    ...
+</code></pre>
+<p>These commands can be useful in some cases thanks to the context which alone offers a great deal of information.</p>
+<hr />
+<h1 id="exercises-1"><a class="header" href="#exercises-1">Exercises</a></h1>
+<h3 id="exercise-1-1"><a class="header" href="#exercise-1-1">Exercise 1</a></h3>
+<p>Create a <code>hello</code> command that takes the context of our command as its only argument. This command should simply return &quot;Hello, World&quot;. To send a message, you need to use the <code>send</code> method obtained from the context of the command (<code>ctx.send</code>). </p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def hello(ctx : commands.Context) -&gt; None:
+    await ctx.send(&quot;Hello World!&quot;)
+</code></pre>
+</details>
+<p><strong>Description</strong> : This exercise demonstrates how to create a simple command that allows us to send a message to our Discord channel. This will help us understand how to interact with the Discord API and send messages to our users.</p>
+<h3 id="exercise-2-1"><a class="header" href="#exercise-2-1">Exercise 2</a></h3>
+<p>Complete the <code>numbers</code> command to send the numbers from 0 to 9 using the <code>send</code> method obtained from the context of the command (<code>ctx.send</code>). </p>
+<pre><code class="language-python">@bot.command()
+async def numbers(ctx : commands.Context) -&gt; None:
+    ...
+</code></pre>
+<p><strong>Description</strong> : This exercise shows how to use a for loop to send multiple messages containing numbers to our Discord channel. This will help us understand how to create more complex commands that send multiple messages at once.</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def numbers(ctx : commands.Context) -&gt; None:
+    for i in range(10):
+        await ctx.send(i)
+</code></pre>
+</details>
+<h3 id="exercise-3"><a class="header" href="#exercise-3">Exercise 3</a></h3>
+<p>Complete the <code>ping</code> command so that it returns the bot's latency in milliseconds using the <code>latency</code> attribute of the bot. The latency in milliseconds is obtained by multiplying the value of the <code>latency</code> attribute by 1000. The value should be rounded to two decimal places.</p>
+<pre><code class="language-python">@bot.command()
+async def ping(ctx : commands.Context) -&gt; None:
+    ...
+</code></pre>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def ping(ctx : commands.Context) -&gt; None:
+    await ctx.send(f&quot;Pong! {bot.latency * 1000:.2f} ms&quot;)
+</code></pre>
+</details>
+<p><strong>Description</strong>: This exercise demonstrates how to create a command that returns the bot's latency in milliseconds. This will help us understand how to interact with the bot's built-in attributes and create commands based on that information.</p>
+<h3 id="exercise-4"><a class="header" href="#exercise-4">Exercise 4</a></h3>
+<p>Complete the <code>hello</code> command so that it sends a private message to the author of the command with the content &quot;Hello World!&quot; using the <code>send</code> method obtained from the command context (<code>ctx.author.send</code>).</p>
+<pre><code class="language-python">@bot.command()
+async def hello(ctx : commands.Context) -&gt; None:
+    ...
+</code></pre>
+<details>
+  <summary>Solutions</summary>
+<pre><code class="language-python">@bot.command()
+async def hello(ctx : commands.Context) -&gt; None:
+    await ctx.author.send(&quot;Hello World!&quot;)
+</code></pre>
+</details>
+<p><strong>Description</strong>: This exercise demonstrates how to create a command that sends a private message to the author of the command. This will help us understand how to interact with the Discord API and send private messages to our users.</p>
+<h3 id="exercise-5"><a class="header" href="#exercise-5">Exercise 5</a></h3>
+<p>Create a <code>coinflip</code> command that takes no arguments and randomly returns either &quot;Heads&quot; or &quot;Tails&quot;. The structure of the command is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def coinflip(ctx : commands.Context) -&gt; None:
+    ...
+</code></pre>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">import random
+
+@bot.command()
+async def coinflip(ctx : commands.Context) -&gt; None:
+    await ctx.send(random.choice([&quot;Heads&quot;, &quot;Tails&quot;]))
+</code></pre>
+</details>
+<p><strong>Description</strong>: This exercise demonstrates how to create a command that returns a random value. This will help us understand how to use the <code>random</code> module to create commands that return random values.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unique-argument"><a class="header" href="#unique-argument">unique argument</a></h1>
+<p>It is possible to create commands that take a single argument in addition to the context. To create a command with a single argument, you can use the @bot.command() decorator and define the ctx parameter in the function. Then, you can add the parameter of your choice, with the desired type (please note that for strings, there are some considerations to be aware of, as we will see in the upcoming exercises).</p>
+<p>Thus, a command with a single argument will have the following structure:</p>
+<pre><code class="language-python">    @bot.command()
+    async def command_name(ctx : commands.Context, argument : type) -&gt; None:
+        ...
+</code></pre>
+<hr />
+<h1 id="exercices"><a class="header" href="#exercices">Exercices</a></h1>
+<h3 id="exercise-1-2"><a class="header" href="#exercise-1-2">Exercise 1</a></h3>
+<p>We want to create a command that takes a single argument in addition to the context, which is an integer <code>int</code>, and we want to return its double using the <code>send</code> method obtained from the command's context (<code>ctx.send</code>). The structure of the command is as follows:</p>
+<pre><code class="language-python">    @bot.command()
+    async def double(ctx : commands.Context, number : int) -&gt; None:
+        ...
+</code></pre>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def double(ctx : commands.Context, number : int) -&gt; None:
+    await ctx.send(number * 2)
+</code></pre>
+</details>
+<h3 id="exercise-2-2"><a class="header" href="#exercise-2-2">Exercise 2</a></h3>
+<p>Create a command <code>hello_member</code> that takes a member as a parameter and returns the following message: &quot;Hello {member.mention}!&quot;. To send a message, you must use the <code>send</code> method obtained from the command's context (<code>ctx.send</code>). To mention a member, you must use the <code>mention</code> attribute of the member (<code>member.mention</code>). The <code>member</code> parameter must be of type <code>discord.Member</code>.</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def hello_member(ctx : commands.Context, member : discord.Member) -&gt; None:
+    await ctx.send(f&quot;Hello {member.mention}!&quot;)
+</code></pre>
+</details>
+<h3 id="exercise-3-1"><a class="header" href="#exercise-3-1">Exercise 3</a></h3>
+<p>Create a command <code>send_message</code> that takes a parameter <code>channel</code> of type <code>discord.TextChannel</code> and sends the message &quot;Hello!&quot; to the specified channel. To send a message to a channel, use the <code>send</code> method obtained from the channel (<code>channel.send</code>).</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def send_message(ctx : commands.Context, channel : discord.TextChannel) -&gt; None:
+    await channel.send(&quot;Hello!&quot;)
+</code></pre>
+</details>
+<h3 id="exercise-4-1"><a class="header" href="#exercise-4-1">Exercise 4</a></h3>
+<p>Create a command that takes a single optional parameter <code>member</code> of type <code>discord.Member</code>, and returns the list of roles belonging to that member. If no member is specified, the command should return the roles of the author of the command. The roles of a member can be obtained from the <code>roles</code> attribute of the member (<code>member.roles</code>).</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def roles(ctx : commands.Context, member : discord.Member = None) -&gt; None:
+    if member is None:
+        member = ctx.author
+
+    await ctx.send(&quot;, &quot;.join(role.name for role in member.roles))
+</code></pre>
+<p>or </p>
+<pre><code class="language-python">@bot.command()
+async def roles(ctx : commands.Context, member : discord.Member = None) -&gt; None:
+    if member is None:
+        member = ctx.author
+
+    for role in member.roles:
+        await ctx.send(role.name)
+</code></pre>
+</details>
+<h3 id="exercise-5-1"><a class="header" href="#exercise-5-1">Exercise 5</a></h3>
+<p>Sometimes we lose track of our members and would like to find them easily. To do this, we will create a command that takes a parameter <code>member</code> of type <code>discord.Member</code> and returns the number of days since that member's last login. To obtain the date of a member's last login, use the <code>joined_at</code> attribute of the member (<code>member.joined_at</code>). To obtain the current date, use the function <code>datetime.datetime.now()</code>.</p>
+<p>Our command will have the following structure:</p>
+<pre><code class="language-python">@bot.command()
+async def last_connection(ctx : commands.Context, member : discord.Member) -&gt; None:
+    ...
+</code></pre>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def last_connection(ctx : commands.Context, member : discord.Member) -&gt; None:
+    await ctx.send((datetime.datetime.now() - member.joined_at).days)
+</code></pre>
+</details>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="multiple-arguments"><a class="header" href="#multiple-arguments">Multiple Arguments</a></h1>
+<p>Commands can accept multiple arguments by specifying multiple parameters in the command function. However, it's important to note that the first parameter should always be the command context, represented by an object of type <code>commands.Context</code>. The context object contains information about the command and the message that triggered it. Therefore, it should be passed as the first parameter of the command function.</p>
+<p>If one of the arguments is a string and can contain spaces, it should be preceded by an asterisk. This indicates that the parameter can capture the entire string, including spaces. If the asterisk is omitted, the parameter will only capture the first word. Additionally, other parameters can be added before the parameter that can contain spaces, but no parameters can be placed after it.</p>
+<p>The command structure for commands that accept multiple arguments is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def command_name(ctx: commands.Context, argument_1, ..., argument_n) -&gt; None:
+    ...
+</code></pre>
+<hr />
+<h1 id="exercises-2"><a class="header" href="#exercises-2">Exercises</a></h1>
+<h3 id="exercise-1-3"><a class="header" href="#exercise-1-3">Exercise 1</a></h3>
+<p>Create a command called <code>remove_role</code> that takes a member (<code>discord.Member</code>) and a role (<code>discord.Role</code>) as parameters. The command should check if the member has the specified role and remove it if that's the case. To remove a role from a member, you can use the <code>remove_roles</code> method obtained from the member (<code>member.remove_roles</code>). If the role is successfully removed, the command should send the following message: &quot;The role {role.name} has been removed from {member.name}.&quot; If the role is not removed, the command should send the following message: &quot;{member.name} doesn't have the role {role.name}.&quot;</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def remove_role(ctx: commands.Context, member: discord.Member, role: discord.Role) -&gt; None:
+    if role in member.roles:
+        await member.remove_roles(role)
+        return await ctx.send(f&quot;The role {role.name} has been removed from {member.name}.&quot;)
+    
+    return await ctx.send(f&quot;{member.name} doesn't have the role {role.name}.&quot;)
+</code></pre>
+</details>
+<h3 id="exercise-2-3"><a class="header" href="#exercise-2-3">Exercise 2</a></h3>
+<p>Now that we know how to remove roles, let's add them. Create a command called <code>add_role</code> that takes a member (<code>discord.Member</code>) and a role (<code>discord.Role</code>) as parameters. The command should check if the member has the specified role and add it if that's not the case. To add a role to a member, you can use the <code>add_roles</code> method obtained from the member (<code>member.add_roles</code>). If the role is successfully added, the command should send the following message: &quot;The role {role.name} has been added to {member.name}.&quot; If the role is not added, the command should send the following message: &quot;{member.name} already has the role {role.name}.&quot;</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def add_role(ctx: commands.Context, member: discord.Member, role: discord.Role) -&gt; None:
+    if role not in member.roles:
+        await member.add_roles(role)
+        return await ctx.send(f&quot;The role {role.name} has been added to {member.name}.&quot;)
+    
+    return await ctx.send(f&quot;{member.name} already has the role {role.name}.&quot;)
+</code></pre>
+</details>
+<h3 id="exercise-3-2"><a class="header" href="#exercise-3-2">Exercise 3</a></h3>
+<p>Create a command called <code>slowmode</code> that takes a channel (<code>discord.TextChannel</code>) and a number of seconds (<code>int</code>) as parameters. The command should change the slowmode of the specified channel to the given number of seconds. To change the slowmode of a channel, you can use the <code>edit</code> method obtained from the channel (<code>channel.edit</code>). If the value in seconds is less than 0, the command should send the following message: &quot;The slowmode cannot be less than 0.&quot; If the value in seconds is greater than 21600, the command should send the following message: &quot;The slowmode cannot be greater than 21600.&quot; Otherwise, the command should send the following message: &quot;The slowmode of channel {channel.name} has been changed to {seconds} seconds.&quot;</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def slowmode(ctx: commands.Context, channel: discord.TextChannel, seconds: int) -&gt; None:
+    if seconds &lt; 0:
+        return await ctx.send(&quot;The slowmode cannot be less than 0.&quot;)
+    
+    if seconds &gt; 21600:
+        return await ctx.send(&quot;The slowmode cannot be greater than 21600.&quot;)
+    
+    await channel.edit(slowmode_delay=seconds)
+    return await ctx.send(f&quot;The slowmode of channel {channel.name} has been changed to {seconds} seconds.&quot;)
+</code></pre>
+</details>
+<h3 id="exercise-4-2"><a class="header" href="#exercise-4-2">Exercise 4</a></h3>
+<p>We would like to be able to change voice channels without having to touch our mouse because it takes a bit of time. For that, let's create a command that allows us to move to a different voice channel. Create a command called <code>move</code> that takes an optional voice channel (<code>discord.VoiceChannel</code>) as a parameter. The command should move the member who executed the command to the specified voice channel. If the parameter is not specified, the member should be disconnected from their current voice channel. To move a member to a voice channel, you can use the <code>move_to</code> method obtained from the member (<code>member.move_to</code>). Note that it's not possible to move a member who is not in a voice channel, so you'll need to handle that case. The <code>channel</code> parameter should have the type <code>discord.VoiceChannel</code>.</p>
+<p>The command should have the following structure:</p>
+<pre><code class="language-python">@bot.command()
+async def move(ctx: commands.Context, channel: Optional[discord.VoiceChannel] = None) -&gt; discord.Message:
+    ...
+</code></pre>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def move(ctx: commands.Context, channel: Optional[discord.VoiceChannel] = None) -&gt; discord.Message:
+    try:
+        await ctx.author.move_to(channel)
+    except discord.HTTPException:
+        return await ctx.send(&quot;You are not in a voice channel.&quot;)
+
+    return await ctx.send(f&quot;Moved to {channel.name}&quot;)
+</code></pre>
+<p>We use a <code>try</code>/<code>except</code> block to handle the case where the member is not in a voice channel. If the member is not in a voice channel, a <code>discord.HTTPException</code> exception is raised, and we send an error message. Otherwise, we move the member to the specified voice channel and send a confirmation message.</p>
+</details><div style="break-before: page; page-break-before: always;"></div><h1 id="string-arguments"><a class="header" href="#string-arguments">String Arguments</a></h1>
+<p>In <code>discord.py</code>, commands can accept string arguments as long as those strings do not contain spaces. If we want a command to accept a string with spaces, we need to precede the parameter with an asterisk. This indicates that the parameter can contain spaces. Without the asterisk, the parameter will only capture the first word.</p>
+<p>Therefore, the structure of a command that takes a string argument with spaces is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def command_name(ctx: commands.Context, *, string: str) -&gt; None:
+    ...
+</code></pre>
+<p>It is possible to add other parameters before the parameter that can contain spaces, but no parameters can be placed after the space-containing parameter.</p>
+<p>Let's go through a series of exercises to understand how to use string arguments with spaces in commands.</p>
+<hr />
+<h1 id="exercices-1"><a class="header" href="#exercices-1">Exercices</a></h1>
+<h3 id="exercise-1-4"><a class="header" href="#exercise-1-4">Exercise 1</a></h3>
+<p>Create a command called <code>repeat</code> that takes the context and a string as arguments and sends that message using the <code>send</code> method obtained from the command's context (<code>ctx.send</code>).</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def repeat(ctx: commands.Context, *, message: str) -&gt; None:
+    await ctx.send(message)
+</code></pre>
+<p>Here, we can see that the <code>message</code> parameter is preceded by an asterisk. This means that the parameter can contain spaces. Without the asterisk, the parameter will only capture the first word. Then, we can use the <code>message</code> variable as a regular string and send the message using <code>ctx.send(message)</code>.</p>
+</details>
+<h3 id="exercise-2-4"><a class="header" href="#exercise-2-4">Exercise 2</a></h3>
+<p>Create a command called <code>sum</code> that takes a string as an argument, which represents a list of numbers separated by commas, and returns the sum of these numbers. For example, if we call the command with the string <code>1, 2, 3, 4, 5</code>, the command should return <code>15</code>.</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def sum(ctx: commands.Context, *, numbers: str) -&gt; None:
+    await ctx.send(sum(int(number) for number in numbers.split(&quot;,&quot;)))
+</code></pre>
+</details>
+<h3 id="exercise-3-3"><a class="header" href="#exercise-3-3">Exercise 3</a></h3>
+<p>Create a command called <code>eightball</code> that takes a string argument and returns a random response from a list of responses. For example, if we call the command with the string &quot;Will I pass my exam?&quot;, the command should return a random response from the list of responses.</p>
+<p>The list of responses is as follows:</p>
+<pre><code class="language-python">responses = [
+    &quot;It is certain,&quot;
+    &quot;It is decidedly so,&quot;
+    &quot;Without a doubt,&quot;
+    &quot;Yes definitely,&quot;
+    &quot;You may rely on it,&quot;
+    &quot;As I see it,&quot;
+    &quot;Yes,&quot;
+    &quot;Most likely,&quot;
+    &quot;Outlook good,&quot;
+    &quot;Yes,&quot;
+    &quot;Signs point to yes,&quot;
+    &quot;Don't count on it,&quot;
+    &quot;My reply is no,&quot;
+    &quot;My sources say no,&quot;
+    &quot;Outlook not so good,&quot;
+    &quot;Very doubtful,&quot;
+    &quot;Reply hazy try again,&quot;
+    &quot;Ask again later,&quot;
+    &quot;Better not tell you now,&quot;
+    &quot;Cannot predict now,&quot;
+    &quot;Concentrate and ask again&quot;
+]
+</code></pre>
+<p>(We can use the <code>random.choice</code> function to obtain a random element from a list.)</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">import random
+
+@bot.command()
+async def eightball(ctx: commands.Context, *, question: str) -&gt; None:
+    responses = [
+        &quot;It is certain,&quot;
+        &quot;It is decidedly so,&quot;
+        &quot;Without a doubt,&quot;
+        &quot;Yes definitely,&quot;
+        &quot;You may rely on it,&quot;
+        &quot;As I see it,&quot;
+        &quot;Yes,&quot;
+        &quot;Most likely,&quot;
+        &quot;Outlook good,&quot;
+        &quot;Yes,&quot;
+        &quot;Signs point to yes,&quot;
+        &quot;Don't count on it,&quot;
+        &quot;My reply is no,&quot;
+        &quot;My sources say no,&quot;
+        &quot;Outlook not so good,&quot;
+        &quot;Very doubtful,&quot;
+        &quot;Reply hazy try again,&quot;
+        &quot;Ask again later,&quot;
+        &quot;Better not tell you now,&quot;
+        &quot;Cannot predict now,&quot;
+        &quot;Concentrate and ask again&quot;
+    ]
+    await ctx.send(f&quot;Question: {question}\nAnswer: {random.choice(responses)}&quot;)
+</code></pre>
+</details>
+<h3 id="exercise-4-3"><a class="header" href="#exercise-4-3">Exercise 4</a></h3>
+<p>Create a command called <code>reverse</code> that takes a string argument and returns the reversed string. For example, if we call the command with the string &quot;Hello&quot;, the command should return &quot;olleH&quot;.</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def reverse(ctx: commands.Context, *, string: str) -&gt; None:
+    await ctx.send(string[::-1])
+</code></pre>
+<p>or</p>
+<pre><code class="language-python">@bot.command()
+async def reverse(ctx: commands.Context, *, string: str) -&gt; None:
+    await ctx.send(&quot;&quot;.join(reversed(string)))
+</code></pre>
+<p>or</p>
+<pre><code class="language-python">@bot.command()
+async def reverse(ctx: commands.Context, *, string: str) -&gt; None:
+    result = []
+    for letter in string:
+        result.insert(0, letter)
+
+    await ctx.send(&quot;&quot;.join(result))
+</code></pre>
+</details>
+<h3 id="exercise-5-2"><a class="header" href="#exercise-5-2">Exercise 5</a></h3>
+<p>We love palindromes, in fact, everyone loves palindromes. Therefore, we ask you to create a command called <code>palindrome</code> that takes a string argument and returns &quot;It is a palindrome&quot; if the string is a palindrome and &quot;It is not a palindrome&quot; otherwise. For example, if we call the command with the string &quot;kayak&quot; or &quot;racecar&quot;, we should get &quot;It is a palindrome&quot;, and if we call the command with the string &quot;hello&quot;, we should get &quot;It is not a palindrome&quot;.</p>
+<p>The structure of the command is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def palindrome(ctx: commands.Context, *, word: str) -&gt; None:
+    ...
+</code></pre>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def palindrome(ctx: commands.Context, *, word: str) -&gt; None:
+    if word == word[::-1]:
+        await ctx.send(&quot;It is a palindrome&quot;)
+    else:
+        await ctx.send(&quot;It is not a palindrome&quot;)
+</code></pre>
+<p>In this context, we notice that the palindrome command is very similar to the reverse command. We can therefore create an external function that takes a string argument and returns the reversed string. Then, we can call this function in the palindrome command and in the reverse command. This is not mandatory, but it allows us to reuse code and make the code more readable, following the DRY (Don't Repeat Yourself) principle.</p>
+</details><div style="break-before: page; page-break-before: always;"></div><h1 id="commands-errors"><a class="header" href="#commands-errors">Commands Errors</a></h1>
+<p>Each command can raise an exception. These exceptions can be handled using the <code>error</code> method of each command. Therefore, each error handling function of a command will have the following structure:</p>
+<pre><code class="language-python">@command_name.error
+async def command_name_error(ctx, error):
+    ...
+</code></pre>
+<p>For example, if we have a command that takes a member and a number as arguments and sends the member's name n times, we would have the following command:</p>
+<pre><code class="language-python">@bot.command()
+async def repeat(ctx, member, amount):
+    for _ in range(amount):
+        await ctx.send(member.name)
+</code></pre>
+<p>If we call the <code>repeat</code> command with a negative number, we will encounter an error. The same goes for an invalid member. To handle this error, we can add error handling to the command using the <code>error</code> method:</p>
+<pre><code class="language-python">@bot.command()
+async def repeat(ctx, member, amount):
+    if amount &lt; 0:
+        raise commands.BadArgument(&quot;The amount must be positive&quot;)
+    if not isinstance(amount, int):
+        raise commands.BadArgument(&quot;The amount must be an integer&quot;)
+
+    if not isinstance(member, discord.Member):
+        raise commands.MemberNotFound(member)
+
+    for _ in range(amount):
+        await ctx.send(member.name)
+
+@repeat.error
+async def repeat_errors(ctx, error):
+    if isinstance(error, commands.BadArgument)
+        return await ctx.send(error)
+    if isinstance(error, commands.MemberNotFound)
+        return await ctx.send(f&quot;The member {error.argument} does not exist&quot;)
+
+    raise error
+</code></pre>
+<p>As we can see in the <code>repeat</code> command, there are two possible types of errors: <code>commands.BadArgument</code> and <code>commands.MemberNotFound</code>. For each of these errors, there is an error handling function that handles the error based on its type. If the error is not of type <code>commands.BadArgument</code> or <code>commands.MemberNotFound</code>, we raise the error.</p>
+<p>It's important not to forget to re-raise the error if it's not handled. Otherwise, the command won't return anything.</p>
+<hr />
+<h1 id="exercises-3"><a class="header" href="#exercises-3">Exercises</a></h1>
+<h3 id="exercise-1-5"><a class="header" href="#exercise-1-5">Exercise 1</a></h3>
+<p>Given the following command:</p>
+<pre><code class="language-python">@bot.command()
+async def give(ctx, member, amount):
+    await ctx.send(f&quot;You gave {amount} to {member}&quot;)
+</code></pre>
+<p>Handle the following errors:</p>
+<ul>
+<li>The case where the member does not exist (commands.MemberNotFound)</li>
+<li>The case where the <code>amount</code> argument is not an integer (commands.BadArgument)</li>
+<li>The case where the <code>amount</code> argument is negative (commands.BadArgument)</li>
+</ul>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def give(ctx, member: discord.Member, amount: int):
+    if amount &lt; 0:
+        raise commands.BadArgument(&quot;The amount must be positive&quot;)
+    if not isinstance(amount, int):
+        raise commands.BadArgument(&quot;The amount must be an integer&quot;)
+
+    if not isinstance(member, discord.Member):
+        raise commands.MemberNotFound(member)
+
+    await ctx.send(f&quot;You gave {amount} to {member}&quot;)
+
+@give.error
+async def give_error(ctx, error):
+    if isinstance(error, commands.MemberNotFound):
+        await ctx.send(f&quot;The member {error.argument} does not exist&quot;)
+    elif isinstance(error, commands.BadArgument):
+        await ctx.send(error)
+
+    raise error
+</code></pre>
+</details><div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-3---bacic-converters"><a class="header" href="#chapter-3---bacic-converters">Chapter 3 - Bacic Converters</a></h1>
+<p>In Python, there are what are called type annotations (Type Hint). These annotations are only there to make it clear to the user what type we want for a function, for example:</p>
+<pre><code class="language-python">def add(a, b):
+    return a + b
+</code></pre>
+<p>We don't know what type should be used for a and b because it works fine for integers, floats, and strings. But if we want to create a function that only works with integers, we can use type annotations:</p>
+<pre><code class="language-python">def add(a: int, b: int) -&gt; int:
+    return a + b
+</code></pre>
+<p>Unfortunately, these annotations are not enforced by Python; they are only there to help us understand the code. However, in discord.py, there are what we call converters. These converters are types that allow us to convert a string into another type (since by default a discord command parameter is a string). These converters are used for command arguments. For example, if we want our <code>add</code> command to only work with integers, we can use the <code>int</code> converter:</p>
+<pre><code class="language-python">@bot.command()
+async def add(ctx: commands.Context, a: int, b: int) -&gt; discord.Message:
+    return await ctx.send(str(a + b))
+</code></pre>
+<p>Here we can see several things. First, there is the context type annotation (even without this annotation, its type will be <code>commands.Context</code>). Then we have the type annotations for the parameters <code>a</code> and <code>b</code>. These type annotations are converters; here, we want <code>a</code> and <code>b</code> to be integers. Finally, we have the return type annotation of the function; here, we want the function to return a Discord message (this annotation is not a converter but simply an indication of the return value).</p>
+<p>When using a converter, if the conversion fails, the command will not be executed, and the default error message will be sent.</p>
+<hr />
+<h1 id="exercises-4"><a class="header" href="#exercises-4">Exercises</a></h1>
+<h3 id="exercise-1-6"><a class="header" href="#exercise-1-6">Exercise 1</a></h3>
+<p>Create a command called <code>double</code> that takes a single argument, an integer. This command should return the double of the number passed as an argument.</p>
+<details>
+  <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def double(ctx: commands.Context, number: int) -&gt; discord.Message:
+    return await ctx.send(str(number * 2))
+</code></pre>
+<p>Here we have our <code>number</code> parameter with the <code>int</code> converter. This converter will try to convert the string passed as an argument into an integer. If the conversion fails, the command will not be executed, and the default error message will be sent.</p>
+</details>
+<h3 id="exercise-2-5"><a class="header" href="#exercise-2-5">Exercise 2</a></h3>
+<p>Create a command called <code>repeat</code> that takes two arguments: an integer <code>n</code> and a string <code>text</code>. This command should return <code>text</code> repeated <code>n</code> times. If <code>n</code> is negative, the command should return an error message.</p>
+<details>
+    <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def repeat(ctx: commands.Context, n: int, text: str) -&gt; discord.Message:
+    if n &lt; 0:
+        return await ctx.send(&quot;n must be positive&quot;)
+    return await ctx.send(text * n)
+</code></pre>
+<p>Here we have two converters, <code>int</code> and <code>str</code>. The first one converts the string into an integer, and the second one converts the string into a string. We understand that the second converter is not necessary because by default a string is already a string. However, it is always preferable to add type annotations to make the code more readable.</p>
+</details>
+<h3 id="exercise-3-4"><a class="header" href="#exercise-3-4">Exercise 3</a></h3>
+<p>Create a command called <code>is_adult</code> that takes a single argument, an age. This command should return <code>True</code> if the age passed as an argument is greater than or equal to 18, and <code>False</code> otherwise.</p>
+<details>
+    <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def is_adult(ctx: commands.Context, age: int) -&gt; discord.Message:
+    return await ctx.send(str(age &gt;= 18))
+</code></pre>
+<p>Here we have a single converter, <code>int</code>. This converter will try to convert the string passed as an argument into an integer. If the conversion fails, the command will not be executed, and the default error message will be sent.</p>
+</details>
+<h3 id="exercise-4-4"><a class="header" href="#exercise-4-4">Exercise 4</a></h3>
+<p>Create a command called <code>is_ok</code> that takes a single argument, a boolean <code>ok</code>. This command should return &quot;Ok!&quot; if the boolean passed as an argument is <code>True</code>, and &quot;Not ok&quot; otherwise.</p>
+<details>
+    <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def is_ok(ctx: commands.Context, ok: bool) -&gt; discord.Message:
+    return await ctx.send(&quot;Ok!&quot; if ok else &quot;Not ok&quot;)
+</code></pre>
+<p>or</p>
+<pre><code class="language-python">@bot.command()
+async def is_ok(ctx: commands.Context, ok: bool) -&gt; discord.Message:
+    if ok:
+        return await ctx.send(&quot;Ok!&quot;)
+    return await ctx.send(&quot;Not ok&quot;)
+</code></pre>
+<p>Here we have a single converter, <code>bool</code>. This converter will try to convert the string passed as an argument into a boolean. If the conversion fails, the command will not be executed, and the default error message will be sent. To call the command, you can use <code>True</code> or <code>False</code>, or <code>1</code> or <code>0</code>.</p>
+</details>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-4---cogs"><a class="header" href="#chapter-4---cogs">Chapter 4 - Cogs</a></h1>
+<p>Cogs are command extensions. They allow you to group commands and events into separate files. This allows you to better organize your code and make it more readable. Cogs are classes that inherit from the <code>commands.Cog</code> class. Commands and events are defined in the methods of the class. Cogs are then saved to the bot using the <code>add_cog</code> method.</p>
+<p>For example, we'll create a cog that contains a <code>ping</code> command and an <code>on_message</code> event. We will then register this cog in the bot.</p>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class PingCog(commands.Cog):
+     def __init__(self, bot: commands.Bot):
+         self.bot = bot
+
+     @commands.command()
+     async def ping(self, ctx: commands.Context) -&gt; discord.Message:
+         return await ctx.send(&quot;pong&quot;)
+
+     @commands.Cog.listener()
+     async def on_message(self, message: discord.Message) -&gt; None:
+         if message. content == &quot;ping&quot;:
+             await message.channel.send(&quot;pong&quot;)
+
+
+</code></pre>
+<p>We can see that commands and events are defined in methods of the class. Commands are defined with the <code>command</code> method and events are defined with the <code>listener</code> method. These methods are decorators that take the name of the event or the command as a parameter. For events, the event name is the method name without the <code>on_</code> prefix. For commands, the command name is the method name.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="add-commands-to-a-cog"><a class="header" href="#add-commands-to-a-cog">add commands to a cog</a></h1>
+<p>In the previous chapter, we learned how to create a cog. Now, let's see how to add commands to this cog. We will create a cog that contains a <code>ping</code> command which takes no arguments and responds with <code>pong</code>.</p>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class PingCog(commands.Cog):
+    def __init__(self, bot: commands.Bot):
+        self.bot = bot
+
+    @commands.command()
+    async def ping(self, ctx: commands.Context) -&gt; discord.Message:
+        return await ctx.send(&quot;pong&quot;)
+</code></pre>
+<p>As we can see, to create a new command, we use the <code>command</code> method from the <code>commands</code> library. This method optionally takes the name of the command as a parameter. The function defined right below this method is the function that will be called when the command is executed. This function takes the command's context as a parameter and returns a Discord message.</p>
+<hr />
+<h1 id="exercises-5"><a class="header" href="#exercises-5">Exercises</a></h1>
+<h3 id="exercise-1-7"><a class="header" href="#exercise-1-7">Exercise 1</a></h3>
+<p>Create a cog <code>AddCog</code> that contains a command <code>add</code> which takes two arguments and returns the sum of these two arguments.</p>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class AddCog(commands.Cog):
+    def __init__(self, bot: commands.Bot):
+        self.bot = bot
+
+    @commands.command()
+    async def add(self, ctx: commands.Context, a: int, b: int) -&gt; discord.Message:
+        return await ctx.send(str(a + b))
+</code></pre>
+<p>We can see that to create a new command, we use the <code>command</code> method from the <code>commands</code> library. The function defined below this method takes four parameters. The first parameter is the object itself, the second parameter is the command's context, and the following parameters are the command's arguments. We can see that the arguments are defined with a type. The argument types are automatically checked by the <code>commands</code> library, and if an argument is not of the correct type, the command will not be executed and an error message will be sent to the console.</p>
+</details>
+<h3 id="exercise-2-6"><a class="header" href="#exercise-2-6">Exercise 2</a></h3>
+<p>Create a cog <code>MentionCog</code> that contains a command <code>mention_member_in_channel</code> which takes a member and a channel as parameters and sends a message in that channel mentioning the member. This command takes two parameters and should have the following structure:</p>
+<pre><code class="language-python">async def mention_member_in_channel(self,
+                                    ctx: commands.Context,
+                                    member: discord.Member,
+                                    channel: discord.TextChannel) -&gt; discord.Message:
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class MentionCog(commands.Cog):
+    def __init__(self, bot: commands.Bot):
+        self.bot = bot
+
+    @commands.command()
+    async def mention_member_in_channel(self,
+                                        ctx: commands.Context,
+                                        member: discord.Member,
+                                        channel: discord.TextChannel) -&gt; discord.Message:
+        return await channel.send(member.mention)
+</code></pre>
+</details>
+<h3 id="exercise-3-5"><a class="header" href="#exercise-3-5">Exercise 3</a></h3>
+<p>Create a cog <code>MemberMuteCog</code> that contains two commands: <code>mute_member</code> which takes a member as a parameter and mutes that member, and <code>unmute_member</code> which takes a member as a parameter and unmutes that member.</p>
+<p>Both commands should have the following structure:</p>
+<pre><code class="language-python">async def mute_member(self,
+                      ctx: commands.Context,
+                      member: discord.Member) -&gt; discord.Message:
+</code></pre>
+<pre><code class="language-python">async def unmute_member(self,
+                        ctx: commands.Context,
+                        member: discord.Member) -&gt; discord.Message:
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class MemberMuteCog(commands.Cog):
+    def __init__(self, bot: commands.Bot):
+        self.bot = bot
+
+    @commands.command()
+    async def mute_member(self,
+                          ctx: commands.Context,
+                          member: discord.Member) -&gt; discord.Message:
+        await member.edit(mute=True)
+        return await ctx.send(f&quot;{member.mention} has been muted&quot;)
+
+    @commands.command()
+    async def unmute_member(self,
+                            ctx: commands.Context,
+                            member: discord.Member) -&gt; discord.Message:
+        await member.edit(mute=False)
+        return await ctx.send(f&quot;{member.mention} has been unmuted&quot;)
+</code></pre>
+</details>
+<h3 id="exercise-4-5"><a class="header" href="#exercise-4-5">Exercise 4</a></h3>
+<p>Create a cog <code>MemberRoleHandlerCog</code> that contains two commands: <code>add_role_to_member</code> which takes a member and a role as parameters and adds the role to the member, and <code>remove_role_from_member</code> which takes a member and a role as parameters and removes the role from the member.</p>
+<p>Both commands should have the following structure:</p>
+<pre><code class="language-python">async def add_role_to_member(self,
+                             ctx: commands.Context,
+                             member: discord.Member,
+                             role: discord.Role) -&gt; discord.Message:
+</code></pre>
+<pre><code class="language-python">async def remove_role_from_member(self,
+                                  ctx: commands.Context,
+                                  member: discord.Member,
+                                  role: discord.Role) -&gt; discord.Message:
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class MemberRoleHandlerCog(commands.Cog):
+    def __init__(self, bot: commands.Bot):
+        self.bot = bot
+
+    @commands.command()
+    async def add_role_to_member(self,
+                                 ctx: commands.Context,
+                                 member: discord.Member,
+                                 role: discord.Role) -&gt; discord.Message:
+        await member.add_roles(role)
+        return await ctx.send(f&quot;{role.mention} has been added to {member.mention}&quot;)
+
+    @commands.command()
+    async def remove_role_from_member(self,
+                                      ctx: commands.Context,
+                                      member: discord.Member,
+                                      role: discord.Role) -&gt; discord.Message:
+        await member.remove_roles(role)
+        return await ctx.send(f&quot;{role.mention} has been removed from {member.mention}&quot;)
+</code></pre>
+</details>
+<br>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><h1 id="add-events-to-a-cog"><a class="header" href="#add-events-to-a-cog">add events to a cog</a></h1>
+<p>Events in Cogs are defined using the <code>commands.Cog.listener</code> decorator. This decorator takes the name of the event as an optional parameter. If the event name is not specified, the method name will be used as the event name. For example, the <code>on_message</code> method will be called when a message is sent in a channel.</p>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class PingCog(commands.Cog):
+     def __init__(self, bot: commands.Bot):
+         self.bot = bot
+
+     @commands.Cog.listener()
+     async def on_message(self, message: discord.Message) -&gt; None:
+         if message. content == &quot;ping&quot;:
+             await message.channel.send(&quot;pong&quot;)
+
+</code></pre>
+<p>We see that the <code>on_message</code> method takes the sent message as a parameter and that it is considered a Cog because it has the <code>commands.Cog.listener</code> decorator. We can see that the name of the event is <code>on_message</code> because the name of the method is <code>on_message</code>.</p>
+<p>You can also define an event without the name of the method. In this case, the name of the event will be the name of the method without the <code>on_</code> prefix. For example, the <code>message</code> method will be called when a message is sent to a channel.</p>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class PingCog(commands.Cog):
+     def __init__(self, bot: commands.Bot):
+         self.bot = bot
+
+     @commands.Cog.listener(&quot;on_message&quot;)
+     async def message(self, message: discord.Message) -&gt; None:
+         if message. content == &quot;ping&quot;:
+             await message.channel.send(&quot;pong&quot;)
+
+</code></pre>
+<p>We see that the <code>message</code> method takes the message sent as a parameter and that it is considered a Cog because it has the <code>commands.Cog.listener</code> decorator. We can see that the name of the event is <code>on_message</code> because the name of the method is <code>message</code>.</p>
+<hr />
+<h1 id="exercises-6"><a class="header" href="#exercises-6">Exercises</a></h1>
+<h3 id="exercise-1-8"><a class="header" href="#exercise-1-8">Exercise 1</a></h3>
+<p>Create a <code>CountCog</code> Cog which contains in its constructor a <code>count</code> attribute which is initialized to 0. This Cog must have an <code>on_message</code> event which increments the <code>count</code> attribute each time a message is sent in a living room. The Cog must also have a <code>count</code> command that displays the value of the <code>count</code> attribute.</p>
+<p>The event and the command will therefore have the following structure:</p>
+<pre><code class="language-python">@commands.Cog.listener()
+async def on_message(self, message: discord.Message) -&gt; None:
+     ...
+</code></pre>
+<pre><code class="language-python">@commands.command()
+async def count(self, ctx: commands.Context) -&gt; discord.Message:
+     ...
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class CountCog(commands.Cog):
+     def __init__(self, bot: commands.Bot):
+         self.bot = bot
+         self.count = 0
+
+     @commands.Cog.listener()
+     async def on_message(self, message: discord.Message) -&gt; None:
+         self.count += 1
+
+     @commands.command()
+     async def count(self, ctx: commands.Context) -&gt; discord.Message:
+         return await ctx.send(f&quot;count: {self.count}&quot;)
+
+</code></pre>
+</details>
+<h3 id="exercise-2-7"><a class="header" href="#exercise-2-7">Exercise 2</a></h3>
+<p>Create a <code>Welcome</code> Cog which contains in its constructor a <code>welcome_channel</code> attribute which is initialized to <code>None</code>. This Cog must have an <code>on_member_join</code> event that sends a welcome message to the <code>welcome_channel</code> channel if one is defined. The Cog must also have a <code>set_welcome_channel</code> command that sets the welcome channel.</p>
+<p>The event and the command will therefore have the following structure:</p>
+<pre><code class="language-python">@commands.Cog.listener()
+async def on_member_join(self, member: discord.Member) -&gt; None:
+     ...
+</code></pre>
+<pre><code class="language-python">@commands.command()
+async def set_welcome_channel(self,
+                               ctx: commands.Context,
+                               channel: discord.TextChannel) -&gt; discord.Message:
+     ...
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class Welcome(commands. Cog):
+     def __init__(self, bot: commands.Bot):
+         self.bot = bot
+         self.welcome_channel = None
+
+     @commands.Cog.listener()
+     async def on_member_join(self, member: discord.Member) -&gt; None:
+         if self.welcome_channel is not None:
+             await self.welcome_channel.send(f&quot;Welcome {member.mention}!&quot;)
+
+     @commands.command()
+     async def set_welcome_channel(self,
+                                   ctx: commands.Context,
+                                   channel: discord.TextChannel) -&gt; discord.Message:
+         self.welcome_channel = channel
+         return await ctx.send(f&quot;Welcome channel set to {channel.mention}&quot;)
+
+</code></pre>
+</details>
+<h3 id="exercise-3-6"><a class="header" href="#exercise-3-6">Exercise 3</a></h3>
+<p>Now that we say welcome to the new members, we will give them a role. Create a Cog <code>Role</code> which contains in its constructor a <code>role</code> attribute which is initialized to <code>None</code>. This Cog must have an <code>on_member_join</code> event which gives the <code>role</code> role to the new member if it is defined. The Cog must also have a <code>set_role</code> command that allows you to define the role to give.</p>
+<p>The event and the command will therefore have the following structure:</p>
+<pre><code class="language-python">@commands.Cog.listener()
+async def on_member_join(self, member: discord.Member) -&gt; None:
+     ...
+</code></pre>
+<pre><code class="language-python">@commands.command()
+async def set_role(self,
+                    ctx: commands.Context,
+                    role: discord.Role) -&gt; discord.Message:
+     ...
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class Role(commands.Cog):
+     def __init__(self, bot: commands.Bot):
+         self.bot = bot
+         self.role = None
+
+     @commands.Cog.listener()
+     async def on_member_join(self, member: discord.Member) -&gt; None:
+         if self.role is not None:
+             await member.add_roles(self.role)
+
+     @commands.command()
+     async def set_role(self,
+                        ctx: commands.Context,
+                        role: discord.Role) -&gt; discord.Message:
+         self.role = role
+         return await ctx.send(f&quot;Role set to {role.mention}&quot;)
+
+</code></pre>
+</details>
+<h3 id="exercise-4-6"><a class="header" href="#exercise-4-6">Exercise 4</a></h3>
+<p>Our new member has just left, so we will send him a departure message. Create a <code>Goodbye</code> Cog which contains in its constructor a <code>goodbye_channel</code> attribute which is initialized to <code>None</code>. This Cog must have an <code>on_member_remove</code> event that sends a leaving message to the <code>goodbye_channel</code> channel if one is set. The Cog must also have a <code>set_goodbye_channel</code> command that allows you to set the starting channel.</p>
+<p>The event and the command will therefore have the following structure:</p>
+<pre><code class="language-python">@commands.Cog.listener()
+async def on_member_remove(self, member: discord.Member) -&gt; None:
+     ...
+</code></pre>
+<pre><code class="language-python">@commands.command()
+async def set_goodbye_channel(self,
+                               ctx: commands.Context,
+                               channel: discord.TextChannel) -&gt; discord.Message:
+     ...
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">import discord
+from discord.ext import commands
+
+class Goodbye(commands.Cog):
+     def __init__(self, bot: commands.Bot):
+         self.bot = bot
+         self.goodbye_channel = None
+
+     @commands.Cog.listener()
+     async def on_member_remove(self, member: discord.Member) -&gt; None:
+         if self.goodbye_channel is not None:
+             await self.goodbye_channel.send(f&quot;Goodbye {member.mention}!&quot;)
+
+     @commands.command()
+     async def set_goodbye_channel(self,
+                                   ctx: commands.Context,
+                                   channel: discord.TextChannel) -&gt; discord.Message:
+         self.goodbye_channel = channel
+         return await ctx.send(f&quot;Goodbye channel set to {channel.mention}&quot;)
+
+</code></pre>
+</details>
+<br>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-5---embeds"><a class="header" href="#chapter-5---embeds">Chapter 5 - Embeds</a></h1>
+<p>Embeds are more complex messages than simple messages. They allow adding titles, descriptions, images, links, colors, fields, footers, etc. Embeds are objects of the <code>discord.Embed</code> class. They are then sent to a channel using the <code>send</code> method.</p>
+<pre><code class="language-python">@bot.command
+async def embed(ctx):
+     embed = discord.Embed(title=&quot;Title&quot;, description=&quot;Description&quot;)
+     return await ctx.send(embed=embed)
+</code></pre>
+<p>In this example, we're creating an embed with a title and description. We then send this embed to the channel in which the command was executed.</p>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><h1 id="create-an-embed"><a class="header" href="#create-an-embed">create an embed</a></h1>
+<p>To create an embed we first need to create an object of class <code>discord.Embed</code>. We can then add information to this object. We can add title, description, image, link, color, field, footer, etc. We can then send this embed to a channel using the <code>send</code> method.</p>
+<p>Its constructor takes several optional arguments as parameters. For example, we can define the title, description, color, etc. We can also set the title, description, color, etc... using the <code>set_title</code>, <code>set_description</code>, <code>set_color</code>, etc... methods.</p>
+<pre><code class="language-python">embed = discord.Embed(title=&quot;Title&quot;, description=&quot;Description&quot;)
+</code></pre>
+<p>Will create an embed with a title and description named &quot;Title&quot; and &quot;Description&quot;.</p>
+<hr />
+<h1 id="exercises-7"><a class="header" href="#exercises-7">Exercises</a></h1>
+<h3 id="exercise-1-9"><a class="header" href="#exercise-1-9">Exercise 1</a></h3>
+<p>Create an embed with a title and description. Send this embed to the channel in which the command was executed. The command should have the following structure:</p>
+<pre><code class="language-python">@bot.command()
+async def embed(ctx):
+     ...
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def embed(ctx):
+     embed = discord.Embed(title=&quot;Title&quot;, description=&quot;Description&quot;)
+     return await ctx.send(embed=embed)
+</code></pre>
+</details>
+<h3 id="exercise-2-8"><a class="header" href="#exercise-2-8">Exercise 2</a></h3>
+<p>Create a &quot;Hello&quot; command which takes a member as an argument and which must return an embed with the title &quot;Hello new member&quot; and the description &quot;Welcome to the server member.name&quot;. The command should have the following structure:</p>
+<pre><code class="language-python">@bot.command()
+async def hello(ctx, member: discord.Member):
+     ...
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def hello(ctx, member: discord.Member):
+     embed = discord.Embed(title=&quot;Hello new member&quot;, description=f&quot;Welcome to the server {member.name}&quot;)
+     return await ctx.send(embed=embed)
+</code></pre>
+</details>
+<h3 id="exercise-3-7"><a class="header" href="#exercise-3-7">Exercise 3</a></h3>
+<p>Create a <code>member_roles</code> command which takes a member as an argument and which must return an embed with the title &quot;Roles&quot; and the description of the list of member roles. The command should have the following structure:</p>
+<pre><code class="language-python">@bot.command()
+async def member_roles(ctx, member: discord.Member):
+     ...
+</code></pre>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def member_roles(ctx, member: discord.Member):
+     embed = discord.Embed(title=&quot;Roles&quot;, description=&quot;\n&quot;.join([role.name for role in member.roles]))
+     return await ctx.send(embed=embed)
+</code></pre>
+</details><div style="break-before: page; page-break-before: always;"></div><h1 id="customize-an-embed"><a class="header" href="#customize-an-embed">customize an embed</a></h1>
+<p>It is possible to customize an embed by modifying its attributes. To do this, we use the <code>set_author</code>, <code>set_footer</code>, <code>set_image</code>, <code>set_thumbnail</code>, <code>set_title</code> and <code>set_description</code> methods. These methods take the name of the attribute and its value as parameters. For example, to change the color of an embed, we use the <code>set_color</code> method which takes the color of the embed as a parameter. To get the color of a member, we use the <code>color</code> attribute of the member (member.color).</p>
+<pre><code class="language-python">embed = discord.Embed()
+embed.set_color(member.color)
+</code></pre>
+<p>If we want, for example, to define the thumbnail with the avatar of a member, we can use the <code>avatar.url</code> attribute of the member (member.avatar.url).</p>
+<pre><code class="language-python">embed = discord.Embed()
+embed.set_thumbnail(url=member.avatar.url)
+</code></pre>
+<p>To add a field to an embed, we use the <code>add_field</code> method which takes the name of the field and its value as parameters.</p>
+<pre><code class="language-python">embed = discord.Embed()
+embed.add_field(name=&quot;Field 1&quot;, value=&quot;Value 1&quot;)
+embed.add_field(name=&quot;Field 2&quot;, value=&quot;Value 2&quot;)
+</code></pre>
+<hr />
+<h1 id="exercises-8"><a class="header" href="#exercises-8">Exercises</a></h1>
+<h3 id="exercise-1-10"><a class="header" href="#exercise-1-10">Exercise 1</a></h3>
+<p>Create a <code>beautify</code> command that takes a message as a parameter and returns an embed with the title &quot;Message from {message author}&quot;, the message content as description and the color of the message author as the color. The command should have the following structure:</p>
+<pre><code class="language-python">@bot.command()
+async def beautify(ctx: commands.Context, *, message: str) -&gt; None:
+     ...
+</code></pre>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def beautify(ctx: commands.Context, *, message: str) -&gt; None:
+     embed = discord.Embed(title=f&quot;Message from {ctx.author.display_name}&quot;, description=message, color=ctx.author.color)
+     return await ctx.send(embed=embed)
+</code></pre>
+</details>
+<h3 id="exercise-2-9"><a class="header" href="#exercise-2-9">Exercise 2</a></h3>
+<p>Some of our members have absolutely beautiful avatars and we would like to be able to display them in an embed. To do this, we will create an <code>avatar</code> command which takes a member as an optional parameter and which returns an embed containing the avatar of the member specified in the image of the embed and the link to this image in the description of the embed. If the member is not specified, the command should return the avatar of the author of the command. To obtain a member's avatar, you must use the member's <code>avatar.url</code> attribute (member.avatar.url). To create an embed, you must use the <code>discord.Embed</code> class and to add an image to an embed, you must use the <code>set_image</code> method of the <code>discord.Embed</code> class (embed.set_image).</p>
+<p>The command structure is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def avatar(ctx: commands.Context, member: discord.Member = None) -&gt; None:
+     ...
+</code></pre>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def avatar(ctx: commands.Context, member: discord.Member = None) -&gt; None:
+     if member is None:
+         member = ctx.author
+
+     embed = discord.Embed()
+     embed.set_image(url=member.avatar.url)
+     embed.description = member.avatar.url
+     await ctx.send(embed=embed)
+</code></pre>
+</details>
+<h3 id="exercise-3-8"><a class="header" href="#exercise-3-8">Exercise 3</a></h3>
+<p>We want to create a <code>server</code> command that returns an embed containing the server name, the number of members, the number of roles and the number of channels. To obtain this information, you must use the <code>name</code>, <code>member_count</code>, <code>role_count</code> and <code>text_channels</code> attributes of the server (ctx.guild). To create an embed, you must use the <code>discord.Embed</code> class and to add an image to an embed, you must use the <code>set_image</code> method of the <code>discord.Embed</code> class (embed.set_image).</p>
+<p>The command structure is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def server(ctx: commands.Context)-&gt;None:
+     ...
+</code></pre>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">@bot.command()
+async def server(ctx: commands.Context)-&gt;None:
+     embed = discord.Embed()
+     embed.title = ctx.guild.name
+     embed.description = f&quot;Members: {ctx.guild.member_count}\nRoles: {ctx.guild.role_count}\nChannels: {len(ctx.guild.text_channels)}&quot;
+     await ctx.send(embed=embed)
+</code></pre>
+</details><div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-6---slash-commands"><a class="header" href="#chapter-6---slash-commands">Chapter 6 - Slash Commands</a></h1>
+<p>Slash commands are commands that are displayed in the discord command bar. They are very practical because they make it possible not to have to type a prefix to launch a command. They are also more visible than the classic commands. To create a slash command, we use the following syntax:</p>
+<pre><code class="language-python">@bot.tree.command()
+async def command_name(interaction: discord.Interaction, *args, **kwargs):
+     ...
+</code></pre>
+<p>For example, to create a <code>ping</code> slash command that is called when the user executes the <code>/ping</code> command, we use the following syntax:</p>
+<pre><code class="language-python">@bot.tree.command()
+async def ping(interaction: discord.Interaction):
+     await ctx.send(&quot;Pong!&quot;)
+</code></pre>
+<p>This example sends the message &quot;Pong!&quot; in the channel in which the command was executed.</p>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><h1 id="create-a-slash-command"><a class="header" href="#create-a-slash-command">create a slash command</a></h1>
+<hr />
+<h1 id="exercises-9"><a class="header" href="#exercises-9">Exercises</a></h1>
+<h3 id="exercise-1-11"><a class="header" href="#exercise-1-11">Exercise 1</a></h3>
+<p>Create a <code>shop</code> slash command that takes three arguments: an <code>article</code> string, an <code>quantity</code> integer, and an action that is a literal between &quot;buy&quot; and &quot;sell&quot;. If the action is &quot;buy&quot;, the command returns &quot;You bought {quantity} {item}&quot;. If the action is &quot;sell&quot;, the command returns &quot;You sold {quantity} {item}&quot;. If the action is anything else, the command returns an error.</p>
+<p>To create a literal, use the <code>Literal</code> function of the <code>typing</code> library like this:</p>
+<pre><code class="language-python">from typing import Literal
+
+action : Literal[&quot;buy&quot;, &quot;sell&quot;]
+</code></pre>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">@bot.tree.command()
+async def shop(interaction: discord.Interaction, item: str, quantity: int, action: Literal[&quot;buy&quot;, &quot;sell&quot;]) -&gt; None:
+     if action == &quot;buy&quot;:
+         await interaction.response.send_message(f&quot;You bought {quantity} {item}&quot;)
+     elif action == &quot;sell&quot;:
+         await interaction.response.send_message(f&quot;You sold {quantity} {item}&quot;)
+     else:
+         raise commands.BadArgument(&quot;action must be 'buy' or 'sell'&quot;)
+
+</code></pre>
+</details>
+<h3 id="exercise-2-10"><a class="header" href="#exercise-2-10">Exercise 2</a></h3>
+<p>Create an <code>add</code> command that takes two arguments of type <code>app_command.Range[int, 0, 100]</code> and returns the sum of the two numbers. If either number is outside the range [0, 100], the command returns an error.</p>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">@bot.tree.command()
+async def add(interaction: discord.Interaction, number1: app_command.Range[int, 0, 100], number2: app_command.Range[int, 0, 100]) -&gt; None:
+     await interaction.response.send_message(number1 + number2)
+</code></pre>
+</details>
+<h3 id="exercise-3-9"><a class="header" href="#exercise-3-9">Exercise 3</a></h3>
+<p>Consider the following enum:</p>
+<pre><code class="language-python">class Color(Enum):
+     RED = &quot;red&quot;
+     GREEN = &quot;green&quot;
+     BLUE = &quot;blue&quot;
+</code></pre>
+<p>Create a <code>color</code> command that takes an argument of type <code>Color</code> and returns the chosen color.</p>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">@bot.tree.command()
+async def color(interaction: discord.Interaction, color: Color) -&gt; None:
+     await interaction.response.send_message(color.value)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-7---hybrid-commands"><a class="header" href="#chapter-7---hybrid-commands">Chapter 7 - Hybrid Commands</a></h1>
+<p>Hybrid commands are commands that are displayed in the discord command bar and can be run with a prefix. They are very practical because they make it possible not to have to type a prefix to launch a command. They are also more visible than the classic commands. To create a hybrid command, we use the following syntax:</p>
+<pre><code class="language-python">@bot.hybrid_command()
+async def command_name(ctx: commands.Context, *args, **kwargs):
+     ...
+</code></pre>
+<p>For example, to create a <code>ping</code> hybrid command that is called when the user executes the <code>/ping</code> or <code>!ping</code> command, we use the following syntax:</p>
+<pre><code class="language-python">@bot.hybrid_command()
+async def ping(ctx: commands.Context):
+     await ctx.send(&quot;Pong!&quot;)
+</code></pre>
+<p>This example sends the message &quot;Pong!&quot; in the channel in which the command was executed. We see that this is very practical because we still have the context of the command and we can therefore use the methods of <code>discord.ext.commands.Context</code>.</p>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><h1 id="create-a-hybrid-command"><a class="header" href="#create-a-hybrid-command">create a hybrid command</a></h1>
+<p>As we saw in the previous section, to create a hybrid command, we use the following syntax:</p>
+<pre><code class="language-python">@bot.hybrid_command()
+async def command_name(ctx: commands.Context, *args, **kwargs):
+     ...
+</code></pre>
+<hr />
+<h1 id="exercises-10"><a class="header" href="#exercises-10">Exercises</a></h1>
+<h3 id="exercise-1-12"><a class="header" href="#exercise-1-12">Exercise 1</a></h3>
+<p>Create a hybrid <code>announcement</code> command that takes a title and a message as parameters and returns an embed with our title as title, &quot;New announcement&quot; as description and a &quot;Message&quot; field with our message as value. To create a field in an embed, you must use the <code>add_field</code> method of the <code>discord.Embed</code> class (embed.add_field). We will have to define the author of the embed with the author of the command and the color of the embed with the color of the author of the command (ctx.author.color). The thumbnail of the embed will be the guild icon (ctx.guild.icon.url).</p>
+<p>The command should be of the following form:</p>
+<pre><code class="language-python">@bot.hybrid_command()
+async def announcement(ctx: commands.Context, title: str, *, message: str) -&gt; discord.Message:
+     ...
+</code></pre>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">@bot.hybrid_command()
+async def announcement(ctx: commands.Context, title: str, *, message: str) -&gt; discord.Message:
+     embed = discord.Embed(title=title, description=&quot;New Announcement&quot;, color=ctx.author.color)
+     embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar.url)
+     embed.set_thumbnail(url=ctx.guild.icon.url)
+     embed.add_field(name=&quot;Message&quot;, value=message)
+     return await ctx.send(embed=embed)
+</code></pre>
+</details><div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-8---converters"><a class="header" href="#chapter-8---converters">Chapter 8 - Converters</a></h1>
+<p>Converters are functions that convert a string to another type. For example, we can convert a character string to integer, to boolean, to date, to time, to member, to role, to channel, to emoji, to color, to URL, to file, to user, to character string , etc. Converters are very useful because they make it possible to verify that the arguments passed to a command are valid. For example, if we want to create a command that allows us to ban a member, we can use the <code>discord.Member</code> converter to check that the member exists and that the bot has the necessary permissions to ban this member. If the member does not exist or the bot does not have the necessary permissions, the command will return an error. Converters are functions that take a string as a parameter and return an object of type <code>discord.ext.commands.Converter</code>. Converters are used in commands. For example, to create a command that allows you to ban a member, you can use the <code>discord.Member</code> converter like this:</p>
+<pre><code class="language-python">@bot.command()
+async def ban(ctx: commands.Context, member: discord.Member) -&gt; None:
+     await member. ban()
+</code></pre>
+<p>Here, the <code>member</code> parameter is a converter. This converter will try to convert the character string passed as an argument into a member. If the conversion fails, the command will not be executed and the default error message will be sent.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function-converters"><a class="header" href="#function-converters">function converters</a></h1>
+<hr />
+<h1 id="exercises-11"><a class="header" href="#exercises-11">Exercises</a></h1>
+<h3 id="exercise-1-13"><a class="header" href="#exercise-1-13">Exercise 1</a></h3>
+<p>Create a converter that takes a string as a parameter and that returns the same string in uppercase. If the string is empty, the converter should return an error.</p>
+<p>The structure of the converter is as follows:</p>
+<pre><code class="language-python">def to_upper(argument: str) -&gt; str:
+     ...
+</code></pre>
+<p>An example of using the converter is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def upper(ctx: commands.Context, argument: to_upper) -&gt; None:
+     await ctx.send(argument)
+</code></pre>
+<p>If we call the <code>upper</code> command with the string &quot;hello&quot;, the bot returns &quot;HELLO&quot;.</p>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">def to_upper(argument: str) -&gt; str:
+     if argument == &quot;&quot;:
+         raise commands.BadArgument(&quot;argument is empty&quot;)
+     return argument. upper()
+</code></pre>
+</details>
+<h3 id="exercise-2-11"><a class="header" href="#exercise-2-11">Exercise 2</a></h3>
+<p>Create a converter which takes a number as a parameter and which returns the character string which follows the following logic: If we take 4 as an example, the converter returns &quot;1, 2, 3, 4&quot;. If we take 0 as an example, the converter returns &quot;0&quot;. If we take a negative number, the converter returns an error. So the general form is as follows: &quot;1, 2, 3, ..., n&quot; where n is the number passed as a parameter.</p>
+<p>The structure of the converter is as follows:</p>
+<pre><code class="language-python">def to_list(argument: int) -&gt; str:
+     ...
+</code></pre>
+<p>An example of using the converter is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def list_convertion(ctx: commands.Context, argument: to_list) -&gt; None:
+     await ctx.send(argument)
+</code></pre>
+<p>If we call the <code>list_convertion</code> command with the number 4, the bot returns &quot;1, 2, 3, 4&quot;.</p>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">def to_list(argument: int) -&gt; str:
+     if argument &lt; 0:
+         raise commands.BadArgument(&quot;argument must be positive&quot;)
+     return &quot;, &quot;.join(str(i) for i in range(1, argument + 1))
+</code></pre>
+</details>
+<h3 id="exercise-3-10"><a class="header" href="#exercise-3-10">Exercise 3</a></h3>
+<p>Create a converter that takes a member as a parameter and must return the string that has the form &quot;Hello, member.name!&quot; where member.name is the name of the member passed as a parameter.</p>
+<p>The structure of the converter is as follows:</p>
+<pre><code class="language-python">def to_hello(member: discord.Member) -&gt; str:
+     ...
+</code></pre>
+<p>An example of using the converter is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def hello(ctx: commands.Context, member: to_hello) -&gt; None:
+     await ctx.send(member)
+</code></pre>
+<p>If we call the <code>hello</code> command with the member &quot;John&quot;, the bot returns &quot;Hello, John!&quot;.</p>
+<details>
+   <summary>Solution</summary>
+<pre><code class="language-python">def to_hello(member: discord.Member) -&gt; str:
+     return f&quot;Hello, {member.name}!&quot;
+</code></pre>
+</details><div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-converters"><a class="header" href="#advanced-converters">advanced converters</a></h1>
+<p>There are also advanced converters, which are converters that inherit from <code>commands.Converter</code>. These converters are more complex to create, but they allow you to create more custom converters. For example, we can create a converter that takes a member as a parameter and that returns a message of the form &quot;Member {member} has been banned&quot;. To create an advanced converter, you must create a class which inherits from <code>commands.Converter</code> and which implements the <code>convert</code> method. This method takes as a parameter the context of the command and an argument of any or specific type.</p>
+<p>Here is an example of an advanced converter:</p>
+<pre><code class="language-python">from discord.ext import commands
+
+class MemberConverter(commands.Converter):
+     async def convert(self, ctx: commands.Context, argument: str) -&gt; str:
+         member = ctx.guild.get_member_named(argument)
+         if member is None:
+             raise commands.BadArgument(f&quot;Member {argument} does not exist.&quot;)
+         return f&quot;Member {member} has been banned.&quot;
+</code></pre>
+<p>This converter takes a member name as a parameter and returns a message of the form &quot;Member {member} has been banned&quot;. If the member does not exist, the converter returns an error.</p>
+<hr />
+<h1 id="exercises-12"><a class="header" href="#exercises-12">Exercises</a></h1>
+<h3 id="exercise-1-14"><a class="header" href="#exercise-1-14">Exercise 1</a></h3>
+<p>Create a class that inherits from <code>commands.Converter</code>, which takes as a parameter a character string which forms a time such as &quot;10s&quot; or &quot;1h&quot; and which returns a <code>datetime.timedelta</code> object which represents the current time + the time spent as a parameter. If the string does not form a valid time, the converter should return an error.</p>
+<p>The structure of the class is as follows:</p>
+<pre><code class="language-python">from datetime import timedelta
+
+class TimeConverter(commands.Converter):
+     async def convert(self, ctx: commands.Context, argument: str) -&gt; datetime.timedelta:
+         ...
+</code></pre>
+<p>An example of using the converter is as follows:</p>
+<pre><code class="language-python">@bot.command()
+async def time(ctx: commands.Context, argument: TimeConverter) -&gt; None:
+     await ctx.send(argument)
+</code></pre>
+<p>If we call the <code>time</code> command with the string &quot;10s&quot;, the bot returns the current date and time + 10 seconds.</p>
+<details>
+   <summary>Solution</summary>
+<!-- Really not sure about the solution -->
+<pre><code class="language-python">from datetime import timedelta
+
+class TimeConverter(commands.Converter):
+     async def convert(self, ctx: commands.Context, argument: str) -&gt; datetime.timedelta:
+         time_dict = {&quot;s&quot;: 1, &quot;m&quot;: 60, &quot;h&quot;: 3600, &quot;d&quot;: 86400}
+         unit = argument[-1]
+         if unit not in time_dict:
+             raise commands.BadArgument(f&quot;unit '{unit}' is invalid&quot;)
+         try:
+             time = int(argument[:-1])
+         exceptValueError:
+             raise commands.BadArgument(f&quot;time '{argument[:-1]}' is not an integer&quot;)
+         return discord.utils.utcnow() + timedelta(seconds=time * time_dict[unit])
+</code></pre>
+</details>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
